@@ -17,7 +17,19 @@ class Sorting():
     def quicksort(self):
         print('quick')
 
+    def selection_sort(self):
+        n = len(self.table)
+        for i in range(n):
+            min_index = i
+            for j in range(i+1, n):
+                if self.table[j] < self.table[min_index]:
+                    min_index = j
+        # Échange des valeurs
+            self.table[i], self.table[min_index] = self.table[min_index], self.table[i]
+
+
+
 
     
 sort = Sorting(20)
-print(sort.table)
+print("Avant tri :", sort.table)
