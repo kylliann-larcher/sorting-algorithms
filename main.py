@@ -1,5 +1,5 @@
 from sorting import Sorting
 
 
-sort = Sorting(1000)
-sort.insertion_sort()
+sort = Sorting(100000000)
+sort.quicksort(sort.table_creation())
