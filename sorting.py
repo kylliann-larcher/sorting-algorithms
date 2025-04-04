@@ -27,6 +27,15 @@ class Sorting():
         # Échange des valeurs
             self.table[i], self.table[min_index] = self.table[min_index], self.table[i]
 
+    def bubble_sort(self):
+        n = len(self.table)
+        for i in range(n):
+            for j in range(0, n - i - 1):
+                if self.table[j] > self.table[j + 1]:
+                # Échange des éléments
+                    self.table[j], self.table[j + 1] = self.table[j + 1], self.table[j]
+
+
 
 
 
