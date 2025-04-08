@@ -4,7 +4,7 @@ import sys
 class AlgoMenu:
     def __init__(self):
         pygame.init()
-        self.WIDTH, self.HEIGHT = 800, 500
+        self.WIDTH, self.HEIGHT = 1200, 720
         self.SCREEN = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
         pygame.display.set_caption("Choix du tri et de la taille")
         self.FONT = pygame.font.SysFont(None, 36)

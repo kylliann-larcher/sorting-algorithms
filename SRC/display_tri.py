@@ -9,7 +9,7 @@ class Display:
         self.original_values = values.copy()
         self.n = len(values)
         self.algo_name = algo_name
-        self.width, self.height = 1000, 600
+        self.width, self.height = 1000, 720
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption(f"Animation tri : {algo_name}")
         self.font = pygame.font.SysFont(None, 30)
