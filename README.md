@@ -76,7 +76,10 @@ python src/main.py
 
 ## 🙋‍♂️ Auteur
 
-**Kylliann LARCHER**  
+**Kylliann LARCHER**,  
+Alexandre Chevalier,
+Perla Assuied
+
 Projet développé dans le cadre de ma spécialisation en intelligence artificielle chez La Plateforme.
 
 ---
