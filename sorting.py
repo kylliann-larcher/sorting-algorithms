@@ -15,7 +15,6 @@ class Sorting():
     def insertion_sort(self):
         start_time= time.perf_counter()
 
-        print(self.table)
         for i in self.table:
             if len(self.empty_list) == 0 : 
                 self.empty_list.append(i)
@@ -26,8 +25,6 @@ class Sorting():
                         break
                 else:
                     self.empty_list.append(i)
-        
-        print(self.empty_list)
         counter =time.perf_counter()
         print(f"le temps d'execution est de : {counter - start_time} secondes"  )                    
                 
@@ -59,4 +56,5 @@ class Sorting():
             print(f"le temps d'execution est de : {counter - start_time} secondes"  )
         
         return table_sort
+    
         
