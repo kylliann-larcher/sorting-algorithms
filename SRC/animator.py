@@ -3,27 +3,60 @@ class SortingAlgoAnimator:
         self.values = values
         self.n = len(values)
         self.algorithm_name = algorithm_name
-        self.index_i = 0
-        self.index_j = 0
-        self.done = False
+        self.i = 0
+        self.j = 0
+        self.min_index = 0
+        self.sorted = []
 
     def step(self):
-        """Effectue une étape d’animation selon l’algorithme choisi."""
         if self.algorithm_name == "bubble":
             return self.bubble_sort_step()
-        # Tu pourras ajouter d'autres algos ici plus tard
-        return self.done
+        elif self.algorithm_name == "insertion":
+            return self.insertion_sort_step()
+        elif self.algorithm_name == "selection":
+            return self.selection_sort_step()
+        return None
 
     def bubble_sort_step(self):
-        """Étape de tri à bulle animée"""
-        if self.index_i < self.n:
-            if self.index_j < self.n - self.index_i - 1:
-                if self.values[self.index_j] > self.values[self.index_j + 1]:
-                    self.values[self.index_j], self.values[self.index_j + 1] = self.values[self.index_j + 1], self.values[self.index_j]
-                self.index_j += 1
+        if self.i < self.n:
+            if self.j < self.n - self.i - 1:
+                if self.values[self.j] > self.values[self.j + 1]:
+                    self.values[self.j], self.values[self.j + 1] = self.values[self.j + 1], self.values[self.j]
+                self.j += 1
+                return [self.j - 1, self.j]
             else:
-                self.index_j = 0
-                self.index_i += 1
+                self.j = 0
+                self.i += 1
         else:
-            self.done = True
-        return self.done
+            return None
+        return []
+
+    def insertion_sort_step(self):
+        if self.i < self.n:
+            key = self.values[self.i]
+            j = self.i - 1
+            while j >= 0 and self.values[j] > key:
+                self.values[j + 1] = self.values[j]
+                j -= 1
+            self.values[j + 1] = key
+            self.i += 1
+            return [j + 1, self.i]
+        else:
+            return None
+
+    def selection_sort_step(self):
+        if self.i < self.n:
+            if self.j == 0:
+                self.min_index = self.i
+            if self.j < self.n:
+                if self.values[self.j] < self.values[self.min_index]:
+                    self.min_index = self.j
+                self.j += 1
+                return [self.min_index, self.j - 1]
+            else:
+                self.values[self.i], self.values[self.min_index] = self.values[self.min_index], self.values[self.i]
+                self.i += 1
+                self.j = self.i
+        else:
+            return None
+        return []
