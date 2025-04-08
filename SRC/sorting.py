@@ -19,7 +19,8 @@ class Sorting():
 
     
 
-
+sort = Sorting(20)
+print(sort.table)
 
 
 
