@@ -1,7 +1,7 @@
 from sorting import Sorting
 
 
-sort = Sorting(100)
+sort = Sorting(10000)
 sort.quicksort(sort.table_creation())
 sort.insertion_sort()
 sort.bubble_sort()
