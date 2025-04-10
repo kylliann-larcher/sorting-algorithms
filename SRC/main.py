@@ -1,13 +1,16 @@
+from menu import AlgoMenu
 from sorting import Sorting
 from display_tri import Display
 from animator import SortingAlgoAnimator
-from menu import AlgoMenu
-import sys
+from headless_sort import run_terminal_sort
 
-
-while True:
+if __name__ == "__main__":
     menu = AlgoMenu()
     algo_name, size = menu.run()
+
+    if size > 300:
+        run_terminal_sort(algo_name, size)
+        exit()
 
     while True:
         s = Sorting(size)
@@ -19,8 +22,8 @@ while True:
 
         choice = display.get_user_choice()
         if choice == "retry":
-            continue  # relancer avec même algo
+            continue
         elif choice == "menu":
-            break  # retour au menu
+            break
         else:
-            sys.exit()
+            exit()
