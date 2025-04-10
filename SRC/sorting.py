@@ -96,43 +96,38 @@ class Sorting():
         counter =time.perf_counter()
         print(f"peigne sort execution time : {counter - start_time} secondes"  )
     
-    def merge_sort(self, table, top_level=True):
-        
-        if top_level:
-            start_time= time.perf_counter()
+    def merge_sort(self):
+        self._merge_sort(0, len(self.table) - 1)
 
-        if len(table) > 1:
-            mid = len(table) // 2  
-            left_half = table[:mid]  
-            right_half = table[mid:]
+    def _merge_sort(self, left, right):
+        if left < right:
+            mid = (left + right) // 2
+            self._merge_sort(left, mid)
+            self._merge_sort(mid + 1, right)
+            self._merge(left, mid, right)
 
-            left_sorted = self.merge(left_half)  
-            right_sorted = self.merge(right_half)  
-
-            i = j = k = 0
-            while i < len(left_sorted) and j < len(right_sorted):
-                if left_sorted[i] < right_sorted[j]:
-                    table[k] = left_sorted[i]
-                    i += 1
-                else:
-                    table[k] = right_sorted[j]
-                    j += 1
-                k += 1
-            while i < len(left_sorted):
-                table[k] = left_sorted[i]
+    def _merge(self, left, mid, right):
+        L = self.table[left:mid+1]
+        R = self.table[mid+1:right+1]
+        i = j = 0
+        k = left
+        while i < len(L) and j < len(R):
+            if L[i] <= R[j]:
+                self.table[k] = L[i]
                 i += 1
-                k += 1
-            while j < len(right_sorted):
-                table[k] = right_sorted[j]
+            else:
+                self.table[k] = R[j]
                 j += 1
-                k += 1
+            k += 1
+        while i < len(L):
+            self.table[k] = L[i]
+            i += 1
+            k += 1
+        while j < len(R):
+            self.table[k] = R[j]
+            j += 1
+            k += 1
 
-        if top_level:
-            counter =time.perf_counter()
-            print(f"merge sort execution time : {counter - start_time} secondes"  )
-        
-
-        return table
     
     def tri(self, n, i):
         largest = i 

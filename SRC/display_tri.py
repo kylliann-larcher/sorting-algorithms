@@ -54,6 +54,9 @@ class Display:
             msg2 = self.font.render("Appuie sur R pour recommencer ou M pour retourner au menu", True, (0, 100, 0))
             self.screen.blit(msg1, (self.width // 2 - msg1.get_width() // 2, self.height // 2 - 40))
             self.screen.blit(msg2, (self.width // 2 - msg2.get_width() // 2, self.height // 2 + 10))
+            msg3 = self.font.render("Appuie sur V pour voir les données dans le terminal", True, (0, 100, 0))
+            self.screen.blit(msg3, (self.width // 2 - msg3.get_width() // 2, self.height // 2 + 40))
+
 
         pygame.display.update()
 
@@ -77,6 +80,11 @@ class Display:
                         elif event.key == pygame.K_m:
                             self.user_choice = "menu"
                             self.running = False
+                        elif event.key == pygame.K_v:
+                            print("\n📋 Données générées :")
+                            print("Avant tri :", self.original_values)
+                            print("Après tri :", self.values)
+                                            
             self.clock.tick(60)
 
         pygame.quit()
