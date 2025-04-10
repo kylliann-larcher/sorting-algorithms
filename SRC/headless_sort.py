@@ -18,7 +18,10 @@ def run_terminal_sort(algo_name, size):
     elif algo_name == "merge":
         s.merge_sort()
     elif algo_name == "peigne":
-        s.comb_sort()
+        s.peigne_sort()
+    elif algo_name == "quicksort":
+        s.quick_sort()
+
     else:
         print("❌ Algorithme non reconnu.")
         return

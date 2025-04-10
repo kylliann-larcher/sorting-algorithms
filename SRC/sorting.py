@@ -56,35 +56,28 @@ class Sorting():
         print(f"selection sort execution time: {counter - start_time} secondes"  )  
 
     
-    def quicksort(self, table, top_level=True):
-        if top_level:
-            start_time= time.perf_counter()
+    def quick_sort(self):
+        self._quick_sort(0, len(self.table) - 1)
 
-        if len(table)<=1:
-            return table
+    def _quick_sort(self, low, high):
+        if low < high:
+            pi = self._partition(low, high)
+            self._quick_sort(low, pi - 1)
+            self._quick_sort(pi + 1, high)
 
-        pivot_choice = random.randint(0, len(table)-1)
-        pivot = table[pivot_choice]
-        ##rest = table[:pivot_choice] + table[pivot_choice+1:]
-        under_number = [i for i in table if i < pivot]
-        beyond_number = [i for i in table if i > pivot]
-        
-        """for i in rest:
-            if i < pivot:
-                under_number.append(i)
-            elif i > pivot:
-                beyond_number.append(i)"""
-                
-        table_sort = self.quicksort(under_number, False) + [pivot] + self.quicksort(beyond_number, False)
-        
-        if top_level:
-            counter =time.perf_counter()
-            print(f"quicksort execution time : {counter - start_time} secondes"  )
-        
-        return table_sort
+    def _partition(self, low, high):
+        pivot = self.table[high]
+        i = low - 1
+        for j in range(low, high):
+            if self.table[j] <= pivot:
+                i += 1
+                self.table[i], self.table[j] = self.table[j], self.table[i]
+        self.table[i + 1], self.table[high] = self.table[high], self.table[i + 1]
+        return i + 1
+
     
 
-    def peigne(self):
+    def peigne_sort(self):
         start_time= time.perf_counter()
         n = len(self.table)
         gap = n
@@ -103,7 +96,7 @@ class Sorting():
         counter =time.perf_counter()
         print(f"peigne sort execution time : {counter - start_time} secondes"  )
     
-    def merge(self, table, top_level=True):
+    def merge_sort(self, table, top_level=True):
         
         if top_level:
             start_time= time.perf_counter()
@@ -153,7 +146,7 @@ class Sorting():
             self.table[i], self.table[largest] = self.table[largest], self.table[i]  # Échanger
             self.tri( n, largest)
     
-    def heap(self):
+    def heap_sort(self):
         start_time= time.perf_counter()
         n = len(self.table)
         for i in range(n // 2 - 1, -1, -1):

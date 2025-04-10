@@ -30,6 +30,8 @@ class SortingAlgoAnimator:
             self.gen = self._merge_generator()
         elif self.algorithm_name == "peigne":
             self.gen = self._comb_generator()
+        elif self.algorithm_name == "quicksort":
+            self.gen = self._quicksort_generator()
 
     def step(self):
         try:
@@ -142,3 +144,27 @@ class SortingAlgoAnimator:
                     self.values[i], self.values[i + gap] = self.values[i + gap], self.values[i]
                     sorted = False
                 yield [i, i + gap]
+
+    def _quicksort_generator(self):
+        stack = [(0, self.n -1)]
+
+        while stack:
+            start, end =stack.pop()
+            if start >= end:
+                continue
+
+            pivot = self.values[end]
+            i = start - 1 
+            for j in range(start, end):
+                yield [j, end]
+                if self.values[j] <= pivot:
+                    i +=1
+                    self.values[i], self.values[j] = self.values[j], self.values[i]
+                    yield[i,j]
+            
+            self.values[i + 1], self.values[end] = self.values[end],self.values[i+1]
+            yield [i+1, end ]
+            stack.append((start, i))
+            stack.append((i + 2, end))
+
+            

@@ -15,6 +15,7 @@ class AlgoMenu:
             ("H: Tas (heap)", pygame.K_h, "heap"),
             ("M: Fusion (merge)", pygame.K_m, "merge"),
             ("P: Peigne (comb)", pygame.K_p, "peigne"),
+            ("Q: Tri rapide (quicksort)", pygame.K_q, "quicksort"),
         ]
         self.selected_algo = None
         self.size_input = ""
