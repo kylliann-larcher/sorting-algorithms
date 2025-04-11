@@ -1,96 +1,69 @@
 # Sorting Algorithms Visualizer 🧠🎨
 
-Ce projet Python permet de **visualiser étape par étape différents algorithmes de tri** à l'aide de **Pygame**.  
-Tu peux choisir l'algorithme, le nombre d'éléments à trier, et voir en temps réel comment les données sont triées, avec des animations claires et une interface intuitive.
+This Python project allows you to visualize step-by-step various sorting algorithms using Pygame.  
+You can choose the sorting algorithm, the number of elements to sort, and watch in real-time how the data is sorted, with clear animations and an intuitive interface.
 
----
+🚀 **Features**  
+Interactive menu to choose:  
+- The sorting algorithm  
+- The number of elements  
+Dynamic graphical visualization with:  
+- Animated vertical bars  
+- Action colors (comparison, sorted)  
+- Accurate stopwatch  
+- Central graduated ruler  
+- End message with animation + confirmation sound  
+Possibility to:  
+- Restart the sort  
+- Return to the menu
 
-## 🚀 Fonctionnalités
+📦 **Available Algorithms**  
+🔁 Bubble Sort  
+🪜 Insertion Sort  
+🔍 Selection Sort  
+🏗 Heap Sort  
+🧬 Merge Sort  
+🦷 Comb Sort
 
-- Menu interactif pour choisir :
-  - l'**algorithme** de tri
-  - le **nombre d'éléments**
-- Visualisation graphique dynamique avec :
-  - Barres verticales animées
-  - Couleurs d'action (comparaison, trié)
-  - **Chronomètre** précis
-  - **Règle graduée centrale**
-  - **Message de fin animé + son de confirmation**
-- Possibilité de :
-  - Recommencer le tri
-  - Revenir au menu
-
----
-
-## 📦 Algorithmes disponibles
-
-- 🔁 Tri à bulle (Bubble Sort)
-- 🪜 Insertion Sort
-- 🔍 Selection Sort
-- 🏗 Heap Sort
-- 🧬 Merge Sort
-- 🦷 Comb Sort (Tri à peigne)
-
----
-
-## 📁 Arborescence
-
+📁 **Project Structure**  
 ```
 sorting-algorithms/
 ├── assets/
-│   └── done.wav               # Son de confirmation
+│   └── done.wav               # Confirmation sound  
 ├── src/
-│   ├── main.py                # Lancement de l'app
-│   ├── menu.py                # Menu de sélection interactif
-│   ├── display_tri.py         # Interface graphique Pygame
-│   ├── animator.py            # Animation des algorithmes (step by step)
-│   └── sorting.py             # Implémentations brutes des algos
+│   ├── main.py                # Launch the app  
+│   ├── menu.py                # Interactive selection menu  
+│   ├── display_tri.py         # Pygame graphical interface  
+│   ├── animator.py            # Algorithm animation (step by step)  
+│   └── sorting.py             # Raw implementations of algorithms  
 ```
 
----
-
-## ▶️ Utilisation
-
-### 1. Installe les dépendances
-
+▶️ **Usage**  
+1. Install the dependencies  
 ```bash
 pip install pygame
 ```
 
-### 2. Lance le programme
-
-Depuis le dossier racine :
-
+2. Run the program  
+From the root folder:  
 ```bash
 python src/main.py
 ```
 
----
-
-## 🛠 Technologies utilisées
-
-- Python 3
+🛠 **Technologies Used**  
+- Python 3  
 - Pygame
 
----
+🙋‍♂️ **Author**  
+Perla Assuied, Kyllian Larcher, Alexandre Chevalier
 
-## 🙋‍♂️ Auteur
+The project was developed as part of my AI specialization at La Plateforme.
 
-**Perla Assuied**, **Kyllian Larcher**, **Alexandre Chevalier**
+🧠 **Future Ideas**  
+- Adding a web interface (web visualizer)  
+- More algorithms: Radix, Shell, Cocktail...  
+- Customization of colors  
+- Video export of the sorting process  
 
-Projet développé dans le cadre de ma spécialisation en intelligence artificielle chez La Plateforme.
-
----
-
-## 🧠 Idées futures
-
-- Ajout d'une interface HTML (web visualizer)
-- Plus d'algorithmes : Radix, Shell, Cocktail...
-- Personnalisation des couleurs
-- Export vidéo du tri
-
----
-
-## 📜 Licence
-
-Ce projet est open-source sous licence MIT.
+📜 **License**  
+This project is open-source under the MIT license.
